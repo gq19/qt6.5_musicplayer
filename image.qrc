@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/"/>
+    <qresource prefix="/new/prefix1">
+        <file>images/1.jpg</file>
+        <file>images/play-and-pause-button.png</file>
+        <file>images/previous-track-button.png</file>
+        <file>images/rewind-button.png</file>
+        <file>images/right-arrow.png</file>
+        <file>images/shuffle.png</file>
+    </qresource>
+</RCC>
