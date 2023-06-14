@@ -21,9 +21,8 @@ Rectangle{
 //                text:"上"
                 background: Rectangle{
                     color: "#00AAAA"
-
-                    width: 30
-                    height: 30
+                    width: 20
+                    height: 20
                     Image {
                         visible: true
                         anchors.fill: parent
@@ -41,8 +40,8 @@ Rectangle{
             Layout.topMargin: 20
                 text: "播放"
                 background: Rectangle{
-                    width: 30
-                    height: 30
+                    width: 20
+                    height: 20
 //                    Image {
 //                        anchors.fill: parent
 //                        source: "qrc:/new/prefix1/images/1.jpg"
@@ -61,8 +60,8 @@ Rectangle{
             Layout.topMargin: 20
                 background: Rectangle{
                     color: "#00AAAA"
-                    width: 30
-                    height: 30
+                    width: 20
+                    height: 20
                     Image {
                         anchors.fill: parent
                         source: "qrc:/new/prefix1/images/play-and-pause-button.png"

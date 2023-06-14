@@ -1,5 +1,4 @@
 <RCC>
-    <qresource prefix="/"/>
     <qresource prefix="/new/prefix1">
         <file>images/1.jpg</file>
         <file>images/play-and-pause-button.png</file>
@@ -7,5 +6,6 @@
         <file>images/rewind-button.png</file>
         <file>images/right-arrow.png</file>
         <file>images/shuffle.png</file>
+        <file>images/next.jpg</file>
     </qresource>
 </RCC>
