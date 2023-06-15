@@ -1,53 +1,69 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.VirtualKeyboard
-import QtQuick.Controls 2.1
 import QtQuick.Layouts
-import QtQml 2.12
-
+import myhttp 1.0
+//主界面
 ApplicationWindow {
-    id: window
-    width: 1300
-    height: 800
+
+    property int w_width: 1300
+    property int w_height: 800
+
+    id:window
+    width: w_width
+    height: w_height
     visible: true
+    title: qsTr("音乐播放器")
+
+    Http{
+           id:http
+
+       }
+
+       Component.onCompleted: {
+           textHttp()
+       }
+
+       function textHttp(){
+           function onReply(reply){
+               console.log(reply)
+               http.onReplySignal.disconnect(onReply)
+
+           }
+
+           http.onReplySignal.connect(onReply)
+           http.connet("banner")
+             }
+
+
 
     ColumnLayout{
         anchors.fill: parent
-        spacing:0
-        //顶部菜单
-       Top{
+        TopView{
+            id:topView
+        }
+        spacing: 0  //取消ui的间隔
 
-       }
-        //左边菜单栏
-       Left{
-
-       }
-
-
-        //中心部分
-        Item{
+        HomeView{
+            id:homeView
 
         }
 
-        //底部工具栏
-        Bottom{
+        BottomView{
+            id:bottomView
 
         }
 
     }
 
+    //实现无边框
+    flags: Qt.Window|Qt.FramelessWindowHint
+
+    //移动
+//    DragHandler{
+//        onActiveChanged: {
+//            if(active){
+//                window.startSystemMove()
+//            }
+//        }
+//    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,42 +1,46 @@
 cmake_minimum_required(VERSION 3.26)
 
-project(musicplayer VERSION 0.1 LANGUAGES CXX)
+project(music_player VERSION 0.1 LANGUAGES CXX)
 
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup()
 
-qt_add_executable(appmusicplayer)
+qt_add_executable(appmusic_player)
 
-target_sources(appmusicplayer
+target_sources(appmusic_player
     PRIVATE
         main.cpp
-        image.qrc
-
+        images.qrc
+        http.cpp
+        http.h
         
     PUBLIC
         
 )
 
-qt_add_qml_module(appmusicplayer
-    URI musicplayer
+qt_add_qml_module(appmusic_player
+    URI music_player
     VERSION 1.0
     QML_FILES 
         Main.qml
-        Top.qml
-        Bottom.qml
-        Left.qml
-        RadiusImage.qml
+        TopView.qml
+        BottomView.qml
+        HomeView.qml
+        MusicIconButton.qml
+        MusicToolButton.qml
+        MusicRoundImage.qml
         DetailRecommendPageView.qml
-        DetailLocationPageView.qml
-        DetailListPageView.qml
-        DetailLovePageView.qml
+        DetailSearchPageView.qml
+        DetailLocalPageView.qml
         DetailHistoryPageView.qml
+        DetailFavoritePageView.qml
+        Banner.qml
 )
 
-target_compile_features(appmusicplayer PRIVATE cxx_std_20)
+target_compile_features(appmusic_player PRIVATE cxx_std_20)
 
-set_target_properties(appmusicplayer PROPERTIES
+set_target_properties(appmusic_player PROPERTIES
     AUTORCC TRUE
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
@@ -45,12 +49,12 @@ set_target_properties(appmusicplayer PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-target_link_libraries(appmusicplayer
+target_link_libraries(appmusic_player
     PRIVATE 
         Qt6::Quick
 )
 
-install(TARGETS appmusicplayer
+install(TARGETS appmusic_player
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -110,7 +114,7 @@ install(TARGETS appmusicplayer
 
 
 
-#qt_add_executable(musicplayer)  //Creates and finalizes an application target of a platform-specific type.
+#qt_add_executable(music_player)  //Creates and finalizes an application target of a platform-specific type.
 #This command performs the following tasks:
 #    1. Create a CMake target of the appropriate type for the target platform.
 #    2. Link the target to the Qt::Core library.
@@ -126,7 +130,7 @@ install(TARGETS appmusicplayer
 # find_package(Qt6 REQUIRED COMPONENTS Core Quick)
 # @endif
 
-# target_sources(appmusicplayer
+# target_sources(appmusic_player
 #     PRIVATE
 #         main.cpp
 #         qml.qrc
@@ -138,4 +142,4 @@ install(TARGETS appmusicplayer
 #         
 # )
 
-# qt_import_qml_plugins(musicplayer)
+# qt_import_qml_plugins(music_player)
